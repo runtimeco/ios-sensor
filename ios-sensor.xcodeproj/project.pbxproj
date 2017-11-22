@@ -1,0 +1,557 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BD0753921FC3A4AA00224681 /* SensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0753911FC3A4AA00224681 /* SensorViewController.swift */; };
+		BD0753941FC3A55C00224681 /* SensorValueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0753931FC3A55C00224681 /* SensorValueTableViewCell.swift */; };
+		BD0753961FC3A68D00224681 /* SensorValuesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0753951FC3A68D00224681 /* SensorValuesTableView.swift */; };
+		BD0753A71FC4C0E500224681 /* MynewtSensorLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0753A51FC4C0E500224681 /* MynewtSensorLineChartView.swift */; };
+		BD0753A81FC4C0E500224681 /* MynewtSensorLineChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD0753A61FC4C0E500224681 /* MynewtSensorLineChartView.xib */; };
+		BD3746D01FBE89B200C4C400 /* ResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3746CF1FBE89B200C4C400 /* ResourceManager.swift */; };
+		BD3746D21FBF722400C4C400 /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3746D11FBF722400C4C400 /* ViewControllerUtils.swift */; };
+		BD3746D61FBF8B9300C4C400 /* MynewtColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3746D51FBF8B9300C4C400 /* MynewtColor.swift */; };
+		BD3746D81FBF904A00C4C400 /* SensorsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3746D71FBF904A00C4C400 /* SensorsTableView.swift */; };
+		BD3746DA1FBF9CA800C4C400 /* SensorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3746D91FBF9CA800C4C400 /* SensorTableViewCell.swift */; };
+		BD3746DC1FBFA4B800C4C400 /* MynewtSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3746DB1FBFA4B800C4C400 /* MynewtSensor.swift */; };
+		BD3746DE1FBFC47900C4C400 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3746DD1FBFC47900C4C400 /* BluetoothManager.swift */; };
+		BD3746E01FC0D4A500C4C400 /* SensorSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3746DF1FC0D4A500C4C400 /* SensorSectionHeader.swift */; };
+		BD836FC91F60E7D700E8F3A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD836FC81F60E7D700E8F3A5 /* AppDelegate.swift */; };
+		BD836FCB1F60E7D700E8F3A5 /* SensorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD836FCA1F60E7D700E8F3A5 /* SensorListViewController.swift */; };
+		BD836FCE1F60E7D700E8F3A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD836FCC1F60E7D700E8F3A5 /* Main.storyboard */; };
+		BD836FD01F60E7D700E8F3A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD836FCF1F60E7D700E8F3A5 /* Assets.xcassets */; };
+		BD836FD31F60E7D700E8F3A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD836FD11F60E7D700E8F3A5 /* LaunchScreen.storyboard */; };
+		BD836FDC1F60F04100E8F3A5 /* iotivity-csdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD836FDB1F60F04100E8F3A5 /* iotivity-csdk.framework */; };
+		BD836FF31F60FA9200E8F3A5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD836FF21F60FA9200E8F3A5 /* CoreBluetooth.framework */; };
+		D53727F040B43E4C7042F836 /* Pods_ios_sensor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF59B596523FE1FA3E2AF07 /* Pods_ios_sensor.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8CF59B596523FE1FA3E2AF07 /* Pods_ios_sensor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_sensor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD0753911FC3A4AA00224681 /* SensorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorViewController.swift; sourceTree = "<group>"; };
+		BD0753931FC3A55C00224681 /* SensorValueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorValueTableViewCell.swift; sourceTree = "<group>"; };
+		BD0753951FC3A68D00224681 /* SensorValuesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorValuesTableView.swift; sourceTree = "<group>"; };
+		BD0753A51FC4C0E500224681 /* MynewtSensorLineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MynewtSensorLineChartView.swift; sourceTree = "<group>"; };
+		BD0753A61FC4C0E500224681 /* MynewtSensorLineChartView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MynewtSensorLineChartView.xib; sourceTree = "<group>"; };
+		BD3746CF1FBE89B200C4C400 /* ResourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceManager.swift; sourceTree = "<group>"; };
+		BD3746D11FBF722400C4C400 /* ViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUtils.swift; sourceTree = "<group>"; };
+		BD3746D51FBF8B9300C4C400 /* MynewtColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MynewtColor.swift; sourceTree = "<group>"; };
+		BD3746D71FBF904A00C4C400 /* SensorsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorsTableView.swift; sourceTree = "<group>"; };
+		BD3746D91FBF9CA800C4C400 /* SensorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorTableViewCell.swift; sourceTree = "<group>"; };
+		BD3746DB1FBFA4B800C4C400 /* MynewtSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MynewtSensor.swift; sourceTree = "<group>"; };
+		BD3746DD1FBFC47900C4C400 /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
+		BD3746DF1FC0D4A500C4C400 /* SensorSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorSectionHeader.swift; sourceTree = "<group>"; };
+		BD836FC51F60E7D700E8F3A5 /* ios-sensor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-sensor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD836FC81F60E7D700E8F3A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BD836FCA1F60E7D700E8F3A5 /* SensorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorListViewController.swift; sourceTree = "<group>"; };
+		BD836FCD1F60E7D700E8F3A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BD836FCF1F60E7D700E8F3A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BD836FD21F60E7D700E8F3A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BD836FD41F60E7D700E8F3A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD836FDB1F60F04100E8F3A5 /* iotivity-csdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "iotivity-csdk.framework"; path = "ocf-sample/iotivity/out/ios/iotivity-csdk.framework"; sourceTree = "<group>"; };
+		BD836FF01F60F2E800E8F3A5 /* ios-sensor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ios-sensor-Bridging-Header.h"; sourceTree = "<group>"; };
+		BD836FF21F60FA9200E8F3A5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		E32AACF3355B4AF7B99DF81C /* Pods-ios-sensor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-sensor.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-sensor/Pods-ios-sensor.release.xcconfig"; sourceTree = "<group>"; };
+		FD84AEE6A4E65D46A3256573 /* Pods-ios-sensor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-sensor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios-sensor/Pods-ios-sensor.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BD836FC21F60E7D700E8F3A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD836FF31F60FA9200E8F3A5 /* CoreBluetooth.framework in Frameworks */,
+				BD836FDC1F60F04100E8F3A5 /* iotivity-csdk.framework in Frameworks */,
+				D53727F040B43E4C7042F836 /* Pods_ios_sensor.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BD0753991FC49D3400224681 /* SensorsList */ = {
+			isa = PBXGroup;
+			children = (
+				BD836FCA1F60E7D700E8F3A5 /* SensorListViewController.swift */,
+				BD3746DF1FC0D4A500C4C400 /* SensorSectionHeader.swift */,
+				BD3746D91FBF9CA800C4C400 /* SensorTableViewCell.swift */,
+				BD3746D71FBF904A00C4C400 /* SensorsTableView.swift */,
+			);
+			path = SensorsList;
+			sourceTree = "<group>";
+		};
+		BD07539A1FC49DA200224681 /* Sensor */ = {
+			isa = PBXGroup;
+			children = (
+				BD0753911FC3A4AA00224681 /* SensorViewController.swift */,
+				BD0753931FC3A55C00224681 /* SensorValueTableViewCell.swift */,
+				BD0753951FC3A68D00224681 /* SensorValuesTableView.swift */,
+			);
+			path = Sensor;
+			sourceTree = "<group>";
+		};
+		BD07539B1FC49E1400224681 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				BD3746CF1FBE89B200C4C400 /* ResourceManager.swift */,
+				BD3746DD1FBFC47900C4C400 /* BluetoothManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		BD07539C1FC49E4E00224681 /* Mynewt */ = {
+			isa = PBXGroup;
+			children = (
+				BD3746D51FBF8B9300C4C400 /* MynewtColor.swift */,
+				BD3746DB1FBFA4B800C4C400 /* MynewtSensor.swift */,
+			);
+			path = Mynewt;
+			sourceTree = "<group>";
+		};
+		BD07539E1FC49EC500224681 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				BD836FF01F60F2E800E8F3A5 /* ios-sensor-Bridging-Header.h */,
+				BD836FD41F60E7D700E8F3A5 /* Info.plist */,
+				BD3746D11FBF722400C4C400 /* ViewControllerUtils.swift */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		BD07539F1FC4C03600224681 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				BD0753A21FC4C0A000224681 /* XIBs */,
+				BD0753A51FC4C0E500224681 /* MynewtSensorLineChartView.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		BD0753A21FC4C0A000224681 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				BD0753A61FC4C0E500224681 /* MynewtSensorLineChartView.xib */,
+			);
+			path = XIBs;
+			sourceTree = "<group>";
+		};
+		BD836FBC1F60E7D700E8F3A5 = {
+			isa = PBXGroup;
+			children = (
+				BD836FC71F60E7D700E8F3A5 /* ios-sensor */,
+				BD836FC61F60E7D700E8F3A5 /* Products */,
+				BD836FDA1F60F04000E8F3A5 /* Frameworks */,
+				F68F9AEA816337FDCC6F9B4A /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		BD836FC61F60E7D700E8F3A5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BD836FC51F60E7D700E8F3A5 /* ios-sensor.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BD836FC71F60E7D700E8F3A5 /* ios-sensor */ = {
+			isa = PBXGroup;
+			children = (
+				BD07539F1FC4C03600224681 /* Charts */,
+				BD07539A1FC49DA200224681 /* Sensor */,
+				BD0753991FC49D3400224681 /* SensorsList */,
+				BD836FC81F60E7D700E8F3A5 /* AppDelegate.swift */,
+				BD836FCC1F60E7D700E8F3A5 /* Main.storyboard */,
+				BD836FCF1F60E7D700E8F3A5 /* Assets.xcassets */,
+				BD836FD11F60E7D700E8F3A5 /* LaunchScreen.storyboard */,
+				BD07539C1FC49E4E00224681 /* Mynewt */,
+				BD07539B1FC49E1400224681 /* Managers */,
+				BD07539E1FC49EC500224681 /* Other */,
+			);
+			path = "ios-sensor";
+			sourceTree = "<group>";
+		};
+		BD836FDA1F60F04000E8F3A5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BD836FF21F60FA9200E8F3A5 /* CoreBluetooth.framework */,
+				BD836FDB1F60F04100E8F3A5 /* iotivity-csdk.framework */,
+				8CF59B596523FE1FA3E2AF07 /* Pods_ios_sensor.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F68F9AEA816337FDCC6F9B4A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FD84AEE6A4E65D46A3256573 /* Pods-ios-sensor.debug.xcconfig */,
+				E32AACF3355B4AF7B99DF81C /* Pods-ios-sensor.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BD836FC41F60E7D700E8F3A5 /* ios-sensor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD836FD71F60E7D700E8F3A5 /* Build configuration list for PBXNativeTarget "ios-sensor" */;
+			buildPhases = (
+				FA6E5A4A8232C9659EAE81F5 /* [CP] Check Pods Manifest.lock */,
+				BD836FC11F60E7D700E8F3A5 /* Sources */,
+				BD836FC21F60E7D700E8F3A5 /* Frameworks */,
+				BD836FC31F60E7D700E8F3A5 /* Resources */,
+				CDB90874B259991BA94E0CF2 /* [CP] Embed Pods Frameworks */,
+				1BE4074BE24E81D5FF9F5FA9 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ios-sensor";
+			productName = "ocf-sample";
+			productReference = BD836FC51F60E7D700E8F3A5 /* ios-sensor.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BD836FBD1F60E7D700E8F3A5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Brian Giori";
+				TargetAttributes = {
+					BD836FC41F60E7D700E8F3A5 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 3Q849T3RP3;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = BD836FC01F60E7D700E8F3A5 /* Build configuration list for PBXProject "ios-sensor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BD836FBC1F60E7D700E8F3A5;
+			productRefGroup = BD836FC61F60E7D700E8F3A5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BD836FC41F60E7D700E8F3A5 /* ios-sensor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BD836FC31F60E7D700E8F3A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD836FD31F60E7D700E8F3A5 /* LaunchScreen.storyboard in Resources */,
+				BD836FD01F60E7D700E8F3A5 /* Assets.xcassets in Resources */,
+				BD836FCE1F60E7D700E8F3A5 /* Main.storyboard in Resources */,
+				BD0753A81FC4C0E500224681 /* MynewtSensorLineChartView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1BE4074BE24E81D5FF9F5FA9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ios-sensor/Pods-ios-sensor-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CDB90874B259991BA94E0CF2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ios-sensor/Pods-ios-sensor-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ios-sensor/Pods-ios-sensor-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA6E5A4A8232C9659EAE81F5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ios-sensor-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BD836FC11F60E7D700E8F3A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD3746D21FBF722400C4C400 /* ViewControllerUtils.swift in Sources */,
+				BD3746D81FBF904A00C4C400 /* SensorsTableView.swift in Sources */,
+				BD3746D61FBF8B9300C4C400 /* MynewtColor.swift in Sources */,
+				BD0753941FC3A55C00224681 /* SensorValueTableViewCell.swift in Sources */,
+				BD3746DC1FBFA4B800C4C400 /* MynewtSensor.swift in Sources */,
+				BD0753961FC3A68D00224681 /* SensorValuesTableView.swift in Sources */,
+				BD836FCB1F60E7D700E8F3A5 /* SensorListViewController.swift in Sources */,
+				BD3746D01FBE89B200C4C400 /* ResourceManager.swift in Sources */,
+				BD3746E01FC0D4A500C4C400 /* SensorSectionHeader.swift in Sources */,
+				BD0753A71FC4C0E500224681 /* MynewtSensorLineChartView.swift in Sources */,
+				BD3746DA1FBF9CA800C4C400 /* SensorTableViewCell.swift in Sources */,
+				BD3746DE1FBFC47900C4C400 /* BluetoothManager.swift in Sources */,
+				BD0753921FC3A4AA00224681 /* SensorViewController.swift in Sources */,
+				BD836FC91F60E7D700E8F3A5 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BD836FCC1F60E7D700E8F3A5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BD836FCD1F60E7D700E8F3A5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BD836FD11F60E7D700E8F3A5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BD836FD21F60E7D700E8F3A5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BD836FD51F60E7D700E8F3A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BD836FD61F60E7D700E8F3A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BD836FD81F60E7D700E8F3A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD84AEE6A4E65D46A3256573 /* Pods-ios-sensor.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 3Q849T3RP3;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ios-sensor/iotivity/out/ios",
+				);
+				INFOPLIST_FILE = "ios-sensor/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = "";
+				"OTHER_CFLAGS[arch=*]" = (
+					"-DROUTING_EP",
+					"-DTB_LOG",
+					"-DIP_ADAPTER",
+					"-DNO_EDR_ADAPTER",
+					"-DLE_ADAPTER",
+					"-DWITH_POSIX",
+					"-D_DARWIN_C_SOURCE",
+					"-DWITH_BWT",
+					"-DWITH_TCP",
+					"-DTB_LOG",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.runtime.ios-sensor";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/briangiori/dev/ios/ios-sensor/ios-sensor/ios-sensor-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		BD836FD91F60E7D700E8F3A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E32AACF3355B4AF7B99DF81C /* Pods-ios-sensor.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 3Q849T3RP3;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ios-sensor/iotivity/out/ios",
+				);
+				INFOPLIST_FILE = "ios-sensor/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = "";
+				"OTHER_CFLAGS[arch=*]" = (
+					"-DROUTING_EP",
+					"-DTB_LOG",
+					"-DIP_ADAPTER",
+					"-DNO_EDR_ADAPTER",
+					"-DLE_ADAPTER",
+					"-DWITH_POSIX",
+					"-D_DARWIN_C_SOURCE",
+					"-DWITH_BWT",
+					"-DWITH_TCP",
+					"-DTB_LOG",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.runtime.ios-sensor";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/briangiori/dev/ios/ios-sensor/ios-sensor/ios-sensor-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BD836FC01F60E7D700E8F3A5 /* Build configuration list for PBXProject "ios-sensor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD836FD51F60E7D700E8F3A5 /* Debug */,
+				BD836FD61F60E7D700E8F3A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD836FD71F60E7D700E8F3A5 /* Build configuration list for PBXNativeTarget "ios-sensor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD836FD81F60E7D700E8F3A5 /* Debug */,
+				BD836FD91F60E7D700E8F3A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BD836FBD1F60E7D700E8F3A5 /* Project object */;
+}

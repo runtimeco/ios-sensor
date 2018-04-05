@@ -198,7 +198,6 @@ class MynewtSensor {
                 }
             } else {
                 // QUALCOMM HACK
-                print("value: \(value ?? "fucking nil bitch") type: \(type(of: value))")
                 if let doubleValue = value as? Double {
                     let doubleValueString = String(format: "%.3f", doubleValue)
                     let secs = Int64(NSDate().timeIntervalSince1970)
@@ -219,8 +218,6 @@ class MynewtSensor {
                         let sensorValue = MynewtSensorValue(name: key, value: Double(intValue), valueStr: arrayValue.description, units: units, secs: secs, usecs: secs * 1_000_000, cputime: 0)
                         mynewtSensorValues.append(sensorValue)
                     }
-                } else {
-                    print("FUCK")
                 }
             }
         }

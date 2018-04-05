@@ -15,6 +15,15 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate {
     var scannedPeripherals = [String: CBPeripheral]()
     var delegates = [BluetoothManagerDelegate]()
     
+    static var instance: BluetoothManager?
+    
+    static func getInstance() -> BluetoothManager {
+        if instance == nil {
+            instance = BluetoothManager()
+        }
+        return instance!
+    }
+    
     override init() {
         super.init()
         centralManager = CBCentralManager(delegate: self, queue: nil)

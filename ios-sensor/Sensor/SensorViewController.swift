@@ -10,8 +10,6 @@ import UIKit
 
 class SensorViewController: UIViewController, MynewtSensorDelegate, SensorValueCellDelegate {
 
-    
-
     @IBOutlet weak var chartContainer: MynewtSensorLineChartView!
     @IBOutlet weak var sensorValuesTable: SensorValuesTableView!
     @IBOutlet weak var sensorValuesTableHeight: NSLayoutConstraint!
@@ -28,6 +26,8 @@ class SensorViewController: UIViewController, MynewtSensorDelegate, SensorValueC
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        selectedSensor.cancelObserve()
         
         let readableSensorName = MynewtSensor.getReadableName(resource: selectedSensor.resource)
         self.navigationItem.title = readableSensorName
@@ -79,7 +79,7 @@ class SensorViewController: UIViewController, MynewtSensorDelegate, SensorValueC
     }
     
     func didObserveSensorValues(representation: OcRepresentation, sensorValues: [MynewtSensorValue]) {
-        synced(self, closure: {
+        ViewControllerUtils.synced(self, closure: {
             if observeState == OBSERVE_PENDNG {
                 observeState = OBSERVING
                 observeToggleBtn.isEnabled = true
@@ -94,7 +94,7 @@ class SensorViewController: UIViewController, MynewtSensorDelegate, SensorValueC
     
     func didFailObserve(representation: OcRepresentation) {
         NSLog("failed to observe sensor")
-        synced(self, closure: {
+        ViewControllerUtils.synced(self, closure: {
             if observeState == OBSERVE_PENDNG {
                 showPlayBtn()
                 observeToggleBtn.isEnabled = true
@@ -105,7 +105,7 @@ class SensorViewController: UIViewController, MynewtSensorDelegate, SensorValueC
     // MARK: - Actions
     
     @IBAction func toggleObserve(_ sender: Any) {
-        synced(self, closure: {
+        ViewControllerUtils.synced(self, closure: {
             if observeState == OBSERVING { // Pause button is showing
                 observeState = CANCELLING_OBSERVE
                 observeToggleBtn.isEnabled = false
@@ -138,13 +138,5 @@ class SensorViewController: UIViewController, MynewtSensorDelegate, SensorValueC
         newObserveToggleBtn.isEnabled = isEnabled
         self.navigationController?.navigationBar.topItem?.rightBarButtonItem = newObserveToggleBtn
         observeToggleBtn = newObserveToggleBtn
-    }
-    
-    // MARK: - Synchronization Helper
-    
-    func synced(_ lock: Any, closure: () -> ()) {
-        objc_sync_enter(lock)
-        closure()
-        objc_sync_exit(lock)
     }
 }

@@ -45,7 +45,9 @@ class MynewtSensor {
     static let RT_EULER = "x.mynewt.snsr.eul";
     static let RT_GRAVITY = "x.mynewt.snsr.grav";
     static let RT_ROTATION_VECTOR = "x.mynewt.snsr.quat";
-    
+    static let RT_QUALCOMM_TEMP = "oic.r.temp"
+    static let RT_QUALCOMM_COMPASS = "oic.r.3"
+
     /* Human readable names for each sensor type */
     static let TITLE_LINEAR_ACCELEROMETER = "Linear Accelerometer";
     static let TITLE_ACCELEROMETER = "Accelerometer";
@@ -60,18 +62,22 @@ class MynewtSensor {
     static let TITLE_EULER = "Euler Sensor";
     static let TITLE_GRAVITY = "Gravity Sensor";
     static let TITLE_ROTATION_VECTOR = "Rotation Vector (Quaternion)";
+    static let TITLE_COMPASS = "Compass";
     
     static func isMynewtSensor(resource: OcResource) -> Bool {
-        return (resource.resourceTypes as! [String]).contains(where: {$0.hasPrefix(MYNEWT_SENSOR_RT_PREFIX)})
+        return (resource.resourceTypes as! [String]).contains(where: {$0.hasPrefix(MYNEWT_SENSOR_RT_PREFIX)}) || (resource.resourceTypes as! [String]).contains(where: {$0 == RT_QUALCOMM_COMPASS})
     }
     
     static func isMynewtSensor(representation: OcRepresentation) -> Bool {
-        return (representation.resourceTypes as! [String]).contains(where: {$0.hasPrefix(MYNEWT_SENSOR_RT_PREFIX)})
+        return (representation.resourceTypes as! [String]).contains(where: {$0.hasPrefix(MYNEWT_SENSOR_RT_PREFIX)}) ||
+            (representation.resourceTypes as! [String]).contains(where: {$0 == RT_QUALCOMM_COMPASS})
     }
     
     static func getSensorType(resource: OcResource) -> String? {
         for resType in resource.resourceTypes as! [String] {
             if resType.hasPrefix(MYNEWT_SENSOR_RT_PREFIX) {
+                return resType
+            } else if resType == RT_QUALCOMM_COMPASS {
                 return resType
             }
         }
@@ -81,6 +87,8 @@ class MynewtSensor {
     static func getSensorType(representation: OcRepresentation) -> String? {
         for resType in representation.resourceTypes as! [String] {
             if resType.hasPrefix(MYNEWT_SENSOR_RT_PREFIX) {
+                return resType
+            } else if resType == RT_QUALCOMM_COMPASS {
                 return resType
             }
         }
@@ -119,6 +127,8 @@ class MynewtSensor {
             return TITLE_GRAVITY
         case RT_ROTATION_VECTOR:
             return TITLE_ROTATION_VECTOR
+        case RT_QUALCOMM_COMPASS:
+            return TITLE_COMPASS
         default:
             return "Unknown Sensor"
         }
@@ -167,10 +177,14 @@ class MynewtSensor {
         case RT_ROTATION_VECTOR:
             keys = [("x", ""), ("y", ""), ("z", ""), ("w", "")]
             break
+        case RT_QUALCOMM_TEMP:
+            keys = [("temperature", "ºC")]
+        case RT_QUALCOMM_COMPASS:
+            keys = [("orientation", "")]
         default:
             return []
         }
-        
+        print(values)
         for (key, units) in keys {
             let value = values[key]
             if let secs = values["ts_secs"] as? Int64, let usecs = values["ts_usecs"] as? Int64, let cputime = values["ts_cputime"] as? Int64 {
@@ -181,6 +195,32 @@ class MynewtSensor {
                 } else if let intValue = value as? Int64 {
                     let sensorValue = MynewtSensorValue(name: key, value: Double(intValue), valueStr: intValue.description, units: units, secs: secs, usecs: usecs, cputime: cputime)
                     mynewtSensorValues.append(sensorValue)
+                }
+            } else {
+                // QUALCOMM HACK
+                print("value: \(value ?? "fucking nil bitch") type: \(type(of: value))")
+                if let doubleValue = value as? Double {
+                    let doubleValueString = String(format: "%.3f", doubleValue)
+                    let secs = Int64(NSDate().timeIntervalSince1970)
+                    let sensorValue = MynewtSensorValue(name: key, value: doubleValue, valueStr: doubleValueString, units: units, secs: secs, usecs: secs * 1_000_000, cputime: 0)
+                    mynewtSensorValues.append(sensorValue)
+                } else if let intValue = value as? Int64 {
+                    let secs = Int64(NSDate().timeIntervalSince1970)
+                    let sensorValue = MynewtSensorValue(name: key, value: Double(intValue), valueStr: intValue.description, units: units, secs: secs, usecs: secs * 1_000_000, cputime: 0)
+                    mynewtSensorValues.append(sensorValue)
+                } else if let stringValue = value as? String {
+                    let doubleValue = Double(stringValue) ?? 0.0
+                    let secs = Int64(NSDate().timeIntervalSince1970)
+                    let sensorValue = MynewtSensorValue(name: key, value: doubleValue, valueStr: stringValue, units: units, secs: secs, usecs: secs * 1_000_000, cputime: 0)
+                    mynewtSensorValues.append(sensorValue)
+                } else if let arrayValue = value as? [Int64] {
+                    let secs = Int64(NSDate().timeIntervalSince1970)
+                    for intValue in arrayValue {
+                        let sensorValue = MynewtSensorValue(name: key, value: Double(intValue), valueStr: arrayValue.description, units: units, secs: secs, usecs: secs * 1_000_000, cputime: 0)
+                        mynewtSensorValues.append(sensorValue)
+                    }
+                } else {
+                    print("FUCK")
                 }
             }
         }
@@ -236,6 +276,7 @@ class MynewtSensor {
     }
     
     func cancelObserve() {
+        print("CANCEL OBSERVE")
         resource.cancelObserve()
     }
 }

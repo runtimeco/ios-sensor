@@ -10,7 +10,10 @@ import UIKit
 import CoreBluetooth
 
 
-class SensorListViewController: UIViewController, BluetoothManagerDelegate, SensorsTableViewDelegate {
+class SensorListViewController: UIViewController, BluetoothManagerDelegate, SensorsTableViewDelegate, SmartDeviceTableViewDelegate {
+    
+    @IBOutlet weak var smartDeviceTableViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var smartDeviceTableView: SmartDeviceTableView!
     
     @IBOutlet weak var sensorsTableView: SensorsTableView!
     @IBOutlet weak var sensorsTableViewHeight: NSLayoutConstraint!
@@ -20,11 +23,12 @@ class SensorListViewController: UIViewController, BluetoothManagerDelegate, Sens
     
     // User selected sensor to send to next View Controller
     var selectedSensor: MynewtSensor!
+    // User selected device to send to next View Controller
+    var selectedDevice: OcResource!
     
     // Bluetooth
     var centralManager: CBCentralManager?
     var peripherals = [String: CBPeripheral]()
-    var bluetoothManager: BluetoothManager!
     
     //MARK: - View Controller
     
@@ -32,22 +36,37 @@ class SensorListViewController: UIViewController, BluetoothManagerDelegate, Sens
         super.viewDidLoad()
         
         // Start bluetoothManager
-        bluetoothManager = BluetoothManager()
-        bluetoothManager.addDelegate(self)
+        BluetoothManager.getInstance().addDelegate(self)
+        
+        smartDeviceTableView.delegate = smartDeviceTableView
+        smartDeviceTableView.dataSource = smartDeviceTableView
+        smartDeviceTableView.heightConstraint = smartDeviceTableViewHeight
+        smartDeviceTableView.deviceDelegate = self
+
         
         sensorsTableView.delegate = sensorsTableView
         sensorsTableView.dataSource = sensorsTableView
         sensorsTableView.sensorsDelegate = self
         sensorsTableView.heightConstraint = sensorsTableViewHeight
-                
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         // Give Iotivity time to set up it's internal BLE client
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1), execute: {
             // Perform Multicast discovery over IP
-//            IotivityClient.shared().discoverMulticast(CT_ADAPTER_IP, callback: self.discoverCallback)
+            IotivityClient.shared().discoverMulticast(CT_ADAPTER_IP, callback: self.discoverCallback)
             // Start scanning
-            self.bluetoothManager.startScan()
+            BluetoothManager.getInstance().startScan()
         })
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1), execute: {
+            BluetoothManager.getInstance().stopScan()
+        })
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -78,12 +97,13 @@ class SensorListViewController: UIViewController, BluetoothManagerDelegate, Sens
         self.printLog("Resources discovered!")
         // Loop through and log each discovered resource
         for resource in resources {
-            
             self.printLog(resource.description);
             ResourceManager.putResource(resource)
             if MynewtSensor.isMynewtSensor(resource: resource) {
-                var mynewtSensor = MynewtSensor(resource: resource, peripheral: self.bluetoothManager.getScannedPeripheral(address: resource.address))
+                var mynewtSensor = MynewtSensor(resource: resource, peripheral: BluetoothManager.getInstance().getScannedPeripheral(address: resource.address))
                 self.sensorsTableView.add(mynewtSensor)
+            } else if (resource.resourceTypes as! [String]).contains(where: {$0 == "oic.r.switch.binary"}) {
+                self.smartDeviceTableView.add(resource)
             }
         }
     }
@@ -147,9 +167,18 @@ class SensorListViewController: UIViewController, BluetoothManagerDelegate, Sens
         performSegue(withIdentifier: "sensorSelected", sender: self)
     }
     
+    func didSelectDevice(resource: OcResource) {
+        selectedDevice = resource
+        performSegue(withIdentifier: "deviceSelected", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let sensorViewController = segue.destination as? SensorViewController {
             sensorViewController.selectedSensor = selectedSensor
+        }
+        
+        if let lightViewController = segue.destination as? LightViewController {
+            lightViewController.selectedDevice = selectedDevice
         }
     }
 

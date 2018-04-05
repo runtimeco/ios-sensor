@@ -13,7 +13,6 @@ class SensorValuesTableView: UITableView, UITableViewDelegate, UITableViewDataSo
     var heightConstraint: NSLayoutConstraint?
     var cellDelegate: SensorValueCellDelegate?
     
-    // Task stats
     var sensorValues = [MynewtSensorValue]()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
